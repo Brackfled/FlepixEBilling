@@ -32,12 +32,14 @@
             btnCurrentCreate = new Button();
             lblFlepixLogo = new Label();
             pnlContent = new Panel();
+            btnStockTracking = new Button();
             panelHeader.SuspendLayout();
             SuspendLayout();
             // 
             // panelHeader
             // 
             panelHeader.BackColor = SystemColors.ButtonHighlight;
+            panelHeader.Controls.Add(btnStockTracking);
             panelHeader.Controls.Add(btnCurrentCreate);
             panelHeader.Controls.Add(lblFlepixLogo);
             panelHeader.Location = new Point(12, 12);
@@ -77,6 +79,20 @@
             pnlContent.Size = new Size(1576, 686);
             pnlContent.TabIndex = 1;
             // 
+            // btnStockTracking
+            // 
+            btnStockTracking.FlatAppearance.MouseDownBackColor = Color.White;
+            btnStockTracking.FlatAppearance.MouseOverBackColor = Color.White;
+            btnStockTracking.FlatStyle = FlatStyle.Flat;
+            btnStockTracking.ForeColor = SystemColors.ControlLightLight;
+            btnStockTracking.Image = Properties.Resources._1564501_business_chart_dashboard_graph_icon;
+            btnStockTracking.Location = new Point(334, 6);
+            btnStockTracking.Name = "btnStockTracking";
+            btnStockTracking.Size = new Size(70, 63);
+            btnStockTracking.TabIndex = 2;
+            btnStockTracking.UseVisualStyleBackColor = true;
+            btnStockTracking.Click += btnStockTracking_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -84,6 +100,7 @@
             ClientSize = new Size(1600, 800);
             Controls.Add(pnlContent);
             Controls.Add(panelHeader);
+            IsMdiContainer = true;
             Name = "MainForm";
             Text = "MainForm";
             panelHeader.ResumeLayout(false);
@@ -97,5 +114,6 @@
         private Label lblFlepixLogo;
         private Button btnCurrentCreate;
         private Panel pnlContent;
+        private Button btnStockTracking;
     }
 }

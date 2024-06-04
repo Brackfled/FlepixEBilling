@@ -44,7 +44,6 @@ namespace Persistance.EntityConfigurations
 
             builder.HasIndex(indexExpression: c => c.CurrentName, name: "UK_Currents_CurrentName");
             builder.HasOne(c => c.TaxDepartment);
-            builder.HasQueryFilter(c => c!.DeletedDate.HasValue);
 
             builder.HasBaseType((string)null!);
 

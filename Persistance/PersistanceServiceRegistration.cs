@@ -17,9 +17,6 @@ namespace Persistance
         {
             services.AddDbContext<BaseDbContext>(options => options.UseSqlServer("Data Source=HUSEYIN\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;Database=FlepixEBilling"));
 
-            services.AddScoped<ITaxDepartmentRepository, TaxDepartmentRepository>();
-            services.AddScoped<ICurrentRepository, CurrentRepository>();
-
             return services;
         }
     }

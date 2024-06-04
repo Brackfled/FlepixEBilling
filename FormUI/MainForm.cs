@@ -21,17 +21,26 @@ namespace FormUI
 
         private readonly ITaxDepartmentService _taxDepartmentService;
         private readonly ICurrentService _currentService;
-        private readonly IServiceProvider _serviceProvider;
-        public MainForm(ITaxDepartmentService taxDepartmentService, ICurrentService currentService, IServiceProvider serviceProvider)
+        private CurrentCreateForm _currentCreateForm;
+        private StocTrackingForm _stockTrackingForm;
+        public MainForm(ITaxDepartmentService taxDepartmentService, ICurrentService currentService, CurrentCreateForm currentCreateForm, StocTrackingForm stockTrackingForm)
         {
             _taxDepartmentService = taxDepartmentService;
-            _serviceProvider = serviceProvider;
+            _currentService = currentService;
+            _currentCreateForm = currentCreateForm;
             InitializeComponent();
+            _stockTrackingForm = stockTrackingForm;
         }
 
         private void btnCurrentCreate_Click(object sender, EventArgs e)
         {
-            ShowPanel(new CurrentCreateForm(_taxDepartmentService, _currentService));
+            //var currentCreateForm = _serviceProvider.GetRequiredService<CurrentCreateForm>();
+            ShowPanel(_currentCreateForm);
+        }
+
+        private void btnStockTracking_Click(object sender, EventArgs e)
+        {
+            ShowPanel(_stockTrackingForm);
         }
 
         private void ShowPanel(Form form)
@@ -42,6 +51,6 @@ namespace FormUI
             form.Dock = DockStyle.None;
             pnlContent.Controls.Add(form);
             form.Show();
-        }
+        }     
     }
 }

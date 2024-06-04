@@ -8,6 +8,7 @@ namespace Domain.Enums
 {
     public enum CurrentType
     {
+        None,
         Buyer,
         Seller,
         BuyerSeler

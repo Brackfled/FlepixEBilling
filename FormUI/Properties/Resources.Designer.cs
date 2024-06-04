@@ -73,9 +73,59 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1564501_business_chart_dashboard_graph_icon {
+            get {
+                object obj = ResourceManager.GetObject("1564501_business_chart_dashboard_graph_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1564502_basket_delete_remove_icon {
+            get {
+                object obj = ResourceManager.GetObject("1564502_basket_delete_remove_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1608809_refresh_icon {
+            get {
+                object obj = ResourceManager.GetObject("1608809_refresh_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _282471_cross_remove_delete_icon {
+            get {
+                object obj = ResourceManager.GetObject("282471_cross_remove_delete_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _3669475_outline_add_circle_ic_icon {
             get {
                 object obj = ResourceManager.GetObject("3669475_outline_add_circle_ic_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3671846_refresh_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("3671846_refresh_icon (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +146,36 @@ namespace FormUI.Properties {
         internal static System.Drawing.Bitmap _4781840___add_circle_create_expand_icon {
             get {
                 object obj = ResourceManager.GetObject("4781840_+_add_circle_create_expand_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8541930_file_import_icon {
+            get {
+                object obj = ResourceManager.GetObject("8541930_file_import_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8541930_file_import_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("8541930_file_import_icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8541957_file_invoice_icon {
+            get {
+                object obj = ResourceManager.GetObject("8541957_file_invoice_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

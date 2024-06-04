@@ -12,18 +12,16 @@ namespace Persistance.Contexts
 {
     public class BaseDbContext: DbContext
     {
-        protected IConfiguration Configuration { get; set; }
 
         public DbSet<TaxDepartment> TaxDepartments { get; set; }
         public DbSet<Current> Currents { get; set; }
+        public DbSet<Product> Products { get; set; }
 
 
-        public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration):base(dbContextOptions)
-        {
-            Configuration = configuration;  
+        public BaseDbContext(DbContextOptions dbContextOptions):base(dbContextOptions)
+        { 
             Database.Migrate();
         }
-       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

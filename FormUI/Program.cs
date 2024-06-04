@@ -2,6 +2,9 @@ using Microsoft.Extensions.Hosting;
 using Persistance;
 using Application;
 using Microsoft.Extensions.DependencyInjection;
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
+using FormUI.DependenctInjection;
 
 namespace FormUI
 {
@@ -26,16 +29,21 @@ namespace FormUI
             System.Windows.Forms.Application.Run(mainForm);
         }
 
-        static IHostBuilder CreateHostBuilder() =>
+        public static IHostBuilder CreateHostBuilder() =>
             Host.CreateDefaultBuilder()
-            .ConfigureServices((context, services) =>
-            {
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                .ConfigureContainer<ContainerBuilder>(builder =>
+                {
+                    builder.RegisterModule(new AutofacApplicationModule());
+                    builder.RegisterModule(new AutofacFormUIModule());
+                    
+                });
+                
 
-                services.AddPersistanceServices();
-                services.AddApplicationServices();
-                services.AddTransient<MainForm>();
-                services.AddTransient<CurrentCreateForm>();
-            });
-            
-    }
+        //public static void ConfigureServices(IServiceCollection services)
+        //{
+        //    services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });      
+        //}
+        
+    } 
 }

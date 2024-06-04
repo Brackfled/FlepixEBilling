@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistance.Contexts;
 
@@ -11,9 +12,11 @@ using Persistance.Contexts;
 namespace Persistance.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    partial class BaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240602183232_mig2")]
+    partial class mig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,45 +146,6 @@ namespace Persistance.Migrations
                     b.HasIndex(new[] { "CurrentName" }, "UK_Currents_CurrentName");
 
                     b.ToTable("Currents", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entities.Product", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("Id");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("CreatedDate");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("DeletedDate");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnName("Name");
-
-                    b.Property<int>("StockAmount")
-                        .HasColumnType("int")
-                        .HasColumnName("StockAmount");
-
-                    b.Property<double>("UnitPrice")
-                        .HasColumnType("float")
-                        .HasColumnName("UnitPrice");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("UpdatedDate");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex(new[] { "Name" }, "UK_Products_Name");
-
-                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.TaxDepartment", b =>

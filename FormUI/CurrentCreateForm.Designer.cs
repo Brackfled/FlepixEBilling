@@ -74,10 +74,21 @@
             txtAddressBABNo = new TextBox();
             txtAddressDistrict = new TextBox();
             txtAddressPostCode = new TextBox();
-            txtCity = new TextBox();
+            txtAddressCity = new TextBox();
             txtAddressNote = new TextBox();
             txtPhoneNumber = new TextBox();
             txtFaxNumber = new TextBox();
+            pnlCurrentType = new Panel();
+            pnlCardType = new Panel();
+            pnlStatus = new Panel();
+            btnCreateCurrent = new Button();
+            lblInfo = new Label();
+            btnImportCurrent = new Button();
+            btnCurrentUpdate = new Button();
+            btnCurrentDelete = new Button();
+            pnlCurrentType.SuspendLayout();
+            pnlCardType.SuspendLayout();
+            pnlStatus.SuspendLayout();
             SuspendLayout();
             // 
             // lblTaxDepartment
@@ -114,7 +125,7 @@
             // 
             lblCardType.AutoSize = true;
             lblCardType.Font = new Font("Segoe UI", 10F);
-            lblCardType.Location = new Point(67, 190);
+            lblCardType.Location = new Point(7, 13);
             lblCardType.Name = "lblCardType";
             lblCardType.Size = new Size(73, 23);
             lblCardType.TabIndex = 3;
@@ -124,7 +135,7 @@
             // 
             lblCurrentType.AutoSize = true;
             lblCurrentType.Font = new Font("Segoe UI", 10F);
-            lblCurrentType.Location = new Point(60, 58);
+            lblCurrentType.Location = new Point(3, 8);
             lblCurrentType.Name = "lblCurrentType";
             lblCurrentType.Size = new Size(80, 23);
             lblCurrentType.TabIndex = 4;
@@ -134,11 +145,11 @@
             // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Segoe UI", 10F);
-            lblStatus.Location = new Point(84, 233);
+            lblStatus.Location = new Point(17, 8);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(56, 23);
+            lblStatus.Size = new Size(63, 23);
             lblStatus.TabIndex = 5;
-            lblStatus.Text = "Status";
+            lblStatus.Text = "Durum";
             // 
             // lblCurrentFirstName
             // 
@@ -303,7 +314,7 @@
             btnCreateCurrentCode.FlatAppearance.BorderSize = 0;
             btnCreateCurrentCode.FlatStyle = FlatStyle.Flat;
             btnCreateCurrentCode.Image = Properties.Resources._4781840___add_circle_create_expand_icon;
-            btnCreateCurrentCode.Location = new Point(476, 97);
+            btnCreateCurrentCode.Location = new Point(486, 97);
             btnCreateCurrentCode.Name = "btnCreateCurrentCode";
             btnCreateCurrentCode.Size = new Size(26, 28);
             btnCreateCurrentCode.TabIndex = 22;
@@ -316,17 +327,17 @@
             btnSearchCurrentCode.FlatAppearance.BorderSize = 0;
             btnSearchCurrentCode.FlatStyle = FlatStyle.Flat;
             btnSearchCurrentCode.Image = Properties.Resources._383226_search_icon;
-            btnSearchCurrentCode.Location = new Point(508, 96);
+            btnSearchCurrentCode.Location = new Point(518, 97);
             btnSearchCurrentCode.Name = "btnSearchCurrentCode";
             btnSearchCurrentCode.Size = new Size(26, 28);
             btnSearchCurrentCode.TabIndex = 23;
             btnSearchCurrentCode.UseVisualStyleBackColor = false;
+            btnSearchCurrentCode.Click += btnSearchCurrentCode_Click;
             // 
             // lblCheckedCurrentCode
             // 
             lblCheckedCurrentCode.Font = new Font("Segoe UI", 10F);
-            lblCheckedCurrentCode.Image = Properties.Resources._1398911_correct_mark_success_tick_valid_icon;
-            lblCheckedCurrentCode.Location = new Point(440, 98);
+            lblCheckedCurrentCode.Location = new Point(448, 98);
             lblCheckedCurrentCode.Name = "lblCheckedCurrentCode";
             lblCheckedCurrentCode.Size = new Size(30, 25);
             lblCheckedCurrentCode.TabIndex = 25;
@@ -334,7 +345,7 @@
             // rdBuyer
             // 
             rdBuyer.AutoSize = true;
-            rdBuyer.Location = new Point(146, 57);
+            rdBuyer.Location = new Point(201, 7);
             rdBuyer.Name = "rdBuyer";
             rdBuyer.Size = new Size(59, 24);
             rdBuyer.TabIndex = 26;
@@ -346,7 +357,7 @@
             // rdSeller
             // 
             rdSeller.AutoSize = true;
-            rdSeller.Location = new Point(211, 57);
+            rdSeller.Location = new Point(89, 7);
             rdSeller.Name = "rdSeller";
             rdSeller.Size = new Size(66, 24);
             rdSeller.TabIndex = 27;
@@ -358,7 +369,8 @@
             // rdBuyerSeller
             // 
             rdBuyerSeller.AutoSize = true;
-            rdBuyerSeller.Location = new Point(283, 58);
+            rdBuyerSeller.FlatAppearance.BorderSize = 0;
+            rdBuyerSeller.Location = new Point(320, 8);
             rdBuyerSeller.Name = "rdBuyerSeller";
             rdBuyerSeller.Size = new Size(101, 24);
             rdBuyerSeller.TabIndex = 28;
@@ -377,7 +389,7 @@
             // rdRealPerson
             // 
             rdRealPerson.AutoSize = true;
-            rdRealPerson.Location = new Point(146, 189);
+            rdRealPerson.Location = new Point(86, 13);
             rdRealPerson.Name = "rdRealPerson";
             rdRealPerson.Size = new Size(102, 24);
             rdRealPerson.TabIndex = 30;
@@ -389,7 +401,7 @@
             // rdCorporate
             // 
             rdCorporate.AutoSize = true;
-            rdCorporate.Location = new Point(283, 190);
+            rdCorporate.Location = new Point(223, 14);
             rdCorporate.Name = "rdCorporate";
             rdCorporate.Size = new Size(92, 24);
             rdCorporate.TabIndex = 31;
@@ -401,7 +413,7 @@
             // rdActive
             // 
             rdActive.AutoSize = true;
-            rdActive.Location = new Point(146, 232);
+            rdActive.Location = new Point(86, 7);
             rdActive.Name = "rdActive";
             rdActive.Size = new Size(61, 24);
             rdActive.TabIndex = 32;
@@ -413,7 +425,7 @@
             // rdPassive
             // 
             rdPassive.AutoSize = true;
-            rdPassive.Location = new Point(283, 232);
+            rdPassive.Location = new Point(223, 7);
             rdPassive.Name = "rdPassive";
             rdPassive.Size = new Size(60, 24);
             rdPassive.TabIndex = 33;
@@ -447,6 +459,7 @@
             // 
             txtTaxDepartmentName.Location = new Point(146, 421);
             txtTaxDepartmentName.Name = "txtTaxDepartmentName";
+            txtTaxDepartmentName.ReadOnly = true;
             txtTaxDepartmentName.Size = new Size(347, 27);
             txtTaxDepartmentName.TabIndex = 37;
             // 
@@ -465,6 +478,7 @@
             btnSearchTaxDepartments.TabIndex = 39;
             btnSearchTaxDepartments.Text = "...";
             btnSearchTaxDepartments.UseVisualStyleBackColor = true;
+            btnSearchTaxDepartments.Click += btnSearchTaxDepartments_Click;
             // 
             // txtAddressHeader
             // 
@@ -515,12 +529,12 @@
             txtAddressPostCode.Size = new Size(113, 27);
             txtAddressPostCode.TabIndex = 46;
             // 
-            // txtCity
+            // txtAddressCity
             // 
-            txtCity.Location = new Point(859, 330);
-            txtCity.Name = "txtCity";
-            txtCity.Size = new Size(438, 27);
-            txtCity.TabIndex = 47;
+            txtAddressCity.Location = new Point(859, 330);
+            txtAddressCity.Name = "txtAddressCity";
+            txtAddressCity.Size = new Size(438, 27);
+            txtAddressCity.TabIndex = 47;
             // 
             // txtAddressNote
             // 
@@ -544,15 +558,124 @@
             txtFaxNumber.Size = new Size(195, 27);
             txtFaxNumber.TabIndex = 50;
             // 
+            // pnlCurrentType
+            // 
+            pnlCurrentType.Controls.Add(rdBuyer);
+            pnlCurrentType.Controls.Add(rdBuyerSeller);
+            pnlCurrentType.Controls.Add(lblCurrentType);
+            pnlCurrentType.Controls.Add(rdSeller);
+            pnlCurrentType.Location = new Point(57, 50);
+            pnlCurrentType.Name = "pnlCurrentType";
+            pnlCurrentType.Size = new Size(487, 35);
+            pnlCurrentType.TabIndex = 53;
+            pnlCurrentType.Tag = "CurrentType";
+            // 
+            // pnlCardType
+            // 
+            pnlCardType.Controls.Add(lblCardType);
+            pnlCardType.Controls.Add(rdRealPerson);
+            pnlCardType.Controls.Add(rdCorporate);
+            pnlCardType.Location = new Point(60, 178);
+            pnlCardType.Name = "pnlCardType";
+            pnlCardType.Size = new Size(484, 46);
+            pnlCardType.TabIndex = 54;
+            pnlCardType.Tag = "CardType";
+            // 
+            // pnlStatus
+            // 
+            pnlStatus.Controls.Add(lblStatus);
+            pnlStatus.Controls.Add(rdActive);
+            pnlStatus.Controls.Add(rdPassive);
+            pnlStatus.Location = new Point(60, 239);
+            pnlStatus.Name = "pnlStatus";
+            pnlStatus.Size = new Size(484, 41);
+            pnlStatus.TabIndex = 55;
+            pnlStatus.Tag = "Status";
+            // 
+            // btnCreateCurrent
+            // 
+            btnCreateCurrent.BackColor = SystemColors.ButtonHighlight;
+            btnCreateCurrent.FlatAppearance.BorderSize = 0;
+            btnCreateCurrent.FlatStyle = FlatStyle.Flat;
+            btnCreateCurrent.Image = Properties.Resources._8541957_file_invoice_icon;
+            btnCreateCurrent.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCreateCurrent.Location = new Point(1009, 590);
+            btnCreateCurrent.Name = "btnCreateCurrent";
+            btnCreateCurrent.Size = new Size(177, 60);
+            btnCreateCurrent.TabIndex = 56;
+            btnCreateCurrent.Text = "KAYDET";
+            btnCreateCurrent.UseVisualStyleBackColor = false;
+            btnCreateCurrent.Click += btnCreateCurrent_Click;
+            // 
+            // lblInfo
+            // 
+            lblInfo.Location = new Point(403, 539);
+            lblInfo.Name = "lblInfo";
+            lblInfo.Size = new Size(590, 25);
+            lblInfo.TabIndex = 57;
+            // 
+            // btnImportCurrent
+            // 
+            btnImportCurrent.BackColor = SystemColors.ButtonHighlight;
+            btnImportCurrent.FlatAppearance.BorderSize = 0;
+            btnImportCurrent.FlatStyle = FlatStyle.Flat;
+            btnImportCurrent.Image = Properties.Resources._8541930_file_import_icon__1_;
+            btnImportCurrent.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImportCurrent.Location = new Point(224, 590);
+            btnImportCurrent.Name = "btnImportCurrent";
+            btnImportCurrent.Size = new Size(177, 60);
+            btnImportCurrent.TabIndex = 58;
+            btnImportCurrent.Text = "İÇE AKTAR";
+            btnImportCurrent.UseVisualStyleBackColor = false;
+            btnImportCurrent.Click += btnImportCurrent_Click;
+            // 
+            // btnCurrentUpdate
+            // 
+            btnCurrentUpdate.BackColor = SystemColors.ButtonHighlight;
+            btnCurrentUpdate.FlatAppearance.BorderSize = 0;
+            btnCurrentUpdate.FlatStyle = FlatStyle.Flat;
+            btnCurrentUpdate.Image = Properties.Resources._3671846_refresh_icon__1_;
+            btnCurrentUpdate.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCurrentUpdate.Location = new Point(747, 590);
+            btnCurrentUpdate.Name = "btnCurrentUpdate";
+            btnCurrentUpdate.Size = new Size(177, 60);
+            btnCurrentUpdate.TabIndex = 59;
+            btnCurrentUpdate.Text = "GÜNCELLE";
+            btnCurrentUpdate.UseVisualStyleBackColor = false;
+            btnCurrentUpdate.Click += btnCurrentUpdate_Click;
+            // 
+            // btnCurrentDelete
+            // 
+            btnCurrentDelete.BackColor = SystemColors.ButtonHighlight;
+            btnCurrentDelete.FlatAppearance.BorderSize = 0;
+            btnCurrentDelete.FlatStyle = FlatStyle.Flat;
+            btnCurrentDelete.Image = Properties.Resources._1564502_basket_delete_remove_icon;
+            btnCurrentDelete.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCurrentDelete.Location = new Point(486, 590);
+            btnCurrentDelete.Name = "btnCurrentDelete";
+            btnCurrentDelete.Size = new Size(177, 60);
+            btnCurrentDelete.TabIndex = 60;
+            btnCurrentDelete.Text = "SİL";
+            btnCurrentDelete.UseVisualStyleBackColor = false;
+            btnCurrentDelete.Click += btnCurrentDelete_Click;
+            // 
             // CurrentCreateForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1782, 686);
+            Controls.Add(btnCurrentDelete);
+            Controls.Add(btnCurrentUpdate);
+            Controls.Add(btnImportCurrent);
+            Controls.Add(lblInfo);
+            Controls.Add(btnCreateCurrent);
+            Controls.Add(pnlStatus);
+            Controls.Add(pnlCardType);
+            Controls.Add(pnlCurrentType);
             Controls.Add(txtFaxNumber);
             Controls.Add(txtPhoneNumber);
             Controls.Add(txtAddressNote);
-            Controls.Add(txtCity);
+            Controls.Add(txtAddressCity);
             Controls.Add(txtAddressPostCode);
             Controls.Add(txtAddressDistrict);
             Controls.Add(txtAddressBABNo);
@@ -566,14 +689,7 @@
             Controls.Add(txtEmail);
             Controls.Add(txtCurrentLastName);
             Controls.Add(txtCurrentFirstName);
-            Controls.Add(rdPassive);
-            Controls.Add(rdActive);
-            Controls.Add(rdCorporate);
-            Controls.Add(rdRealPerson);
             Controls.Add(txtCurrentName);
-            Controls.Add(rdBuyerSeller);
-            Controls.Add(rdSeller);
-            Controls.Add(rdBuyer);
             Controls.Add(lblCheckedCurrentCode);
             Controls.Add(btnSearchCurrentCode);
             Controls.Add(btnCreateCurrentCode);
@@ -593,14 +709,17 @@
             Controls.Add(lblTaxNumberOrIdentityNumber);
             Controls.Add(lblCurrentLastName);
             Controls.Add(lblCurrentFirstName);
-            Controls.Add(lblStatus);
-            Controls.Add(lblCurrentType);
-            Controls.Add(lblCardType);
             Controls.Add(lblCurrentName);
             Controls.Add(lblCurrentCode);
             Controls.Add(lblTaxDepartment);
             Name = "CurrentCreateForm";
             Text = "CurrentCreateForm";
+            pnlCurrentType.ResumeLayout(false);
+            pnlCurrentType.PerformLayout();
+            pnlCardType.ResumeLayout(false);
+            pnlCardType.PerformLayout();
+            pnlStatus.ResumeLayout(false);
+            pnlStatus.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -653,9 +772,17 @@
         private TextBox txtAddressBABNo;
         private TextBox txtAddressDistrict;
         private TextBox txtAddressPostCode;
-        private TextBox txtCity;
+        private TextBox txtAddressCity;
         private TextBox txtAddressNote;
         private TextBox txtPhoneNumber;
         private TextBox txtFaxNumber;
+        private Panel pnlCurrentType;
+        private Panel pnlCardType;
+        private Panel pnlStatus;
+        private Button btnCreateCurrent;
+        private Label lblInfo;
+        private Button btnImportCurrent;
+        private Button btnCurrentUpdate;
+        private Button btnCurrentDelete;
     }
 }
